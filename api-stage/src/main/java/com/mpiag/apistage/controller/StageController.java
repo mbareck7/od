@@ -1,6 +1,7 @@
 package com.mpiag.apistage.controller;
 
 import java.util.ArrayList;
+import com.mpiag.apistage.service.*;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,12 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class StageController {
 
+    StageService ss = new StageService();
     @GetMapping("/stages")
-    public ArrayList<String> getStage(){
-        ArrayList<String> stages = new ArrayList<String>();
-        stages.add("SATGE_FIN_ETUDE");
-        stages.add("STAGE_OUVRIER");
-        stages.add("STAGE_DECOUVERTE");
-        return(stages);
-    }
+    public ArrayList<String> getStages(){ return ss.getStages();}
 }
